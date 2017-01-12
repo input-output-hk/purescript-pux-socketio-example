@@ -1,7 +1,8 @@
 
 exports.connectImpl = function (url) {
   return function() {
-    return require('socket.io-client')(url);
+    const s = require('socket.io-client');
+    return s(url);
   };
 }
 

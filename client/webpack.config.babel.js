@@ -74,8 +74,9 @@ module.exports = {
         options: {
           psc: 'psa',
           jsonErrors: true,
-          src: ['bower_components/purescript-*/src/**/*.purs', 'src/**/*.purs'],
-          ffi: ['bower_components/purescript-*/src/**/*.js', 'src/**/*.js'],
+          src: [
+            path.join('src', '**', '*.purs'),
+            path.join('bower_components', 'purescript-*', 'src', '**', '*.purs')],
         }
       },
       { test: /\.css$/, exclude: /\.useable\.css$/, loader: "style!css" },
