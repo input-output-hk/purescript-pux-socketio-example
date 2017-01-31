@@ -7,7 +7,7 @@
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "express": "4.13.4",
+    "express": "4.14.1",
     "socket.io": "^1.7.2"
   },
   "scripts": {
