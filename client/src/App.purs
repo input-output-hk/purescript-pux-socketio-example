@@ -1,9 +1,8 @@
 module App where
 
 import Prelude
-import App.SocketExample (Action(..), State, connectEvent, loginHandler, loginEvent, messageEvent, mkInitialState, update, userJoinedEvent, view, userJoinedHandler)
+import App.SocketExample (Action(..), State, connectEvent, customDataEvent, customDataHandler, loginHandler, loginEvent, messageEvent, mkInitialState, update, userJoinedEvent, view, userJoinedHandler)
 import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Class (liftEff)
 import Control.SocketIO.Client (Host, SocketIO, connect, on)
 import DOM (DOM)
 import Pux (App, CoreEffects, start, renderToDOM)
@@ -24,6 +23,7 @@ main state = do
   on socket messageEvent \d -> send actionChannel (OnMessage d)
   on socket loginEvent $ loginHandler actionChannel
   on socket userJoinedEvent $ userJoinedHandler actionChannel
+  on socket customDataEvent $ customDataHandler actionChannel
 
   app <- start
       { initialState: mkInitialState socket

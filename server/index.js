@@ -47,4 +47,13 @@ io.on('connection', function (socket) {
     console.log('add user ', numUsers, loginData, joinedData);
   });
 
+  socket.on('custom data', function (data) {
+    console.log('custom data', data);
+    var customDataMsg = {
+      from: data.username || 'unknown',
+      payload: data
+    }
+    socket.broadcast.emit('custom data', customDataMsg);
+  });
+
 });
