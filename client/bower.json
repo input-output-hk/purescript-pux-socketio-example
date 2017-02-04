@@ -24,9 +24,9 @@
     "purescript-pux": "^7.0.0",
     "purescript-functions": "^2.0.0",
     "purescript-arrays": "^3.2.0",
-    "purescript-argonaut": "^2.0.0",
     "purescript-foreign": "^3.2.0",
-    "purescript-generics-rep": "^4.1.0"
+    "purescript-generics-rep": "^4.1.0",
+    "purescript-foreign-generic": "^3.0.0"
   },
   "devDependencies": {
     "purescript-debug": "^2.0.0"

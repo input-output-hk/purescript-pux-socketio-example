@@ -19,10 +19,8 @@ var numUsers = 0;
 io.on('connection', function (socket) {
   var addedUser = false;
 
-  console.log('connected...');
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (msg) {
-    console.log('message ', msg);
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', msg);
   });
@@ -44,11 +42,9 @@ io.on('connection', function (socket) {
     socket.emit('login', loginData);
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', joinedData);
-    console.log('add user ', numUsers, loginData, joinedData);
   });
 
   socket.on('custom data', function (data) {
-    console.log('custom data', data);
     var customDataMsg = {
       from: data.username || 'unknown',
       payload: data
